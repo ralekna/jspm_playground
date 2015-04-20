@@ -1,3 +1,12 @@
+var systemLocate = System.locate;
+System.locate = function(load) {
+  var System = this; // its good to ensure exact instance-binding
+  return Promise.resolve(systemLocate.call(this, load)).then(function(address) {
+    return address + System.cacheBust;
+  });
+};
+System.cacheBust = '?bust=' + Date.now();
+
 System.config({
   "baseURL": "/",
   "transpiler": "babel",
