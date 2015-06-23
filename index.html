@@ -5,8 +5,11 @@
     <title>JSPM playground</title>
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
-    <script>
-        System.import('lib/main');
+    <script type="module">
+        import { main } from 'lib/main'
+        console.log(main);
+        // new Main();
+        // System.import('lib/main');
     </script>
 </head>
 <body>
